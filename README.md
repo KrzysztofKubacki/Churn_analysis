@@ -35,7 +35,7 @@ The project consists of two components:
 **1. Business Overview**  
 → Shows how much revenue is at risk and how churn risk is distributed by categories, payments, and customer tenure.  
 
-![Business Overview](screenshots/01_business_overview.png)
+![Business Overview](screenshots/01_overview.png)
 
 ---
 
@@ -43,7 +43,7 @@ The project consists of two components:
 → Identifies risk factors: satisfaction, complaints, cashback, tenure.  
 → List of customers with recommended actions.  
 
-![Churn Details](screenshots/02_churn_details.png)
+![Churn Details](screenshots/02_detailed.png)
 
 ---
 
@@ -51,7 +51,7 @@ The project consists of two components:
 → Interactive module: how net profit changes under different retention strategies.  
 → ROI for discounts and campaigns → supports budget allocation decisions.  
 
-![Simulations](screenshots/03_simulations.png)
+![Simulations](screenshots/03_simulation.png)
 
 ---
 
