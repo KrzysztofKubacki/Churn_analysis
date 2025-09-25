@@ -1,73 +1,70 @@
 # Customer Churn Analysis (ML + Power BI)
----
-### Cel biznesowy
-
-Firma e-commerce chciała odpowiedzieć na kluczowe pytania:
-
-- Którzy klienci są zagrożeni odejściem?
-
-- Co napędza churn? (czynniki ryzyka)
-
-- Jakie działania retencyjne są najbardziej opłacalne?
-
-&rarr;  Brakowało narzędzia, które łączy analizę predykcyjną (ML) z symulacjami biznesowymi (Power BI).
 
 ---
 
-### Rozwiązanie
+### Business Objective
 
-Projekt składa się z dwóch komponentów:
+The e-commerce company wanted to answer key questions:
 
-**1. Model predykcyjny (Jupyter Notebook)**
+- Which customers are at risk of churning?  
+- What drives churn? (risk factors)  
+- Which retention actions are most profitable?  
 
-- Dane przygotowane w Pythonie (pandas, scikit-learn).
-
-- Model XGBoost do predykcji churn.
-
-- SHAP explainability → które cechy (tenure, reklamacje, cashback, satysfakcja) najmocniej wpływają na ryzyko odejścia.
-
-
-**2. Dashboard biznesowy (Power BI)**
-
-- Segmentacja klientów wg ryzyka (niskie/średnie/wysokie).
-
-- Analiza wpływu churnu na sprzedaż, kategorie produktów, metody płatności.
-
-- Moduł symulacji ROI działań retencyjnych (np. rabaty, telefony, kampanie e-mail).
+→ There was no tool combining predictive analysis (ML) with business simulations (Power BI).
 
 ---
 
-### Kluczowe widoki
-**1. Kondycja biznesu**
+### Solution
 
-&rarr; Pokazuje ile przychodów jest zagrożonych oraz jak ryzyko rozkłada się po kategoriach, płatnościach i stażu klienta.
+The project consists of two components:
+
+**1. Predictive Model (Jupyter Notebook)**  
+- Data prepared in Python (pandas, scikit-learn).  
+- XGBoost model for churn prediction.  
+- SHAP explainability → key drivers of churn (tenure, complaints, cashback, satisfaction).  
+
+**2. Business Dashboard (Power BI)**  
+- Customer segmentation by risk (low / medium / high).  
+- Impact analysis of churn on sales, product categories, and payment methods.  
+- ROI simulation module for retention actions (e.g., discounts, calls, email campaigns).  
+
+---
+
+### Key Views
+
+**1. Business Overview**  
+→ Shows how much revenue is at risk and how churn risk is distributed by categories, payments, and customer tenure.  
 
 ![Business Overview](screenshots/01_business_overview.png)
 
-**2. Analiza szczegółowa churn**
+---
 
-&rarr; Identyfikacja czynników ryzyka: satysfakcja, reklamacje, cashback, długość współpracy.
-&rarr; Lista klientów z rekomendacjami działań.
+**2. Churn Details**  
+→ Identifies risk factors: satisfaction, complaints, cashback, tenure.  
+→ List of customers with recommended actions.  
 
 ![Churn Details](screenshots/02_churn_details.png)
 
-**3. Symulacje i rekomendacje**
+---
 
-&rarr; Interaktywny moduł: jak zmienia się zysk netto przy różnych strategiach retencji.
-&rarr; ROI dla rabatów i kampanii → decyzje o alokacji budżetu.
+**3. Simulations & Recommendations**  
+→ Interactive module: how net profit changes under different retention strategies.  
+→ ROI for discounts and campaigns → supports budget allocation decisions.  
 
 ![Simulations](screenshots/03_simulations.png)
 
-**4. Feature Importances (ML)**
+---
 
-&rarr; Model XGBoost pokazuje, które cechy mają największy wpływ.
+**4. Feature Importances (ML)**  
+→ XGBoost model shows which features have the greatest impact.  
 
 ![Feature Importances](screenshots/04_feature_importances.png)
 
-**5. Explainability (SHAP)**
+---
 
-&rarr; SHAP summary & beeswarm: wpływ cech globalnie.
-&rarr; SHAP waterfall: interpretacja pojedynczego klienta.
+**5. Explainability (SHAP)**  
+→ SHAP summary & beeswarm: global feature impact.  
+→ SHAP waterfall: single-customer interpretation.  
 
 ![SHAP Summary](screenshots/05_shap_summary.png)  
 ![SHAP Beeswarm](screenshots/06_shap_beeswarm.png)  
@@ -75,46 +72,43 @@ Projekt składa się z dwóch komponentów:
 
 ---
 
-### Struktura repozytorium
+### Repository Structure
 ```bash
 Churn_analysis/
-├── Churn.ipynb              # Notebook ML – dane, model, SHAP
-├── bi.pbix                  # Dashboard Power BI
-├── requirements.txt         # Biblioteki do uruchomienia notebooka
-├── README.md                # Dokumentacja projektu
-└── screenshots/             # Screeny do README
+├── Churn.ipynb              # ML notebook – data, model, SHAP
+├── bi.pbix                  # Power BI dashboard
+├── requirements.txt         # Dependencies for the notebook
+├── README.md                # Project documentation
+└── screenshots/             # Screenshots for README
 ```
 
 ---
-### Jak uruchomić (część ML)
-
-Stwórz środowisko:
+### How to Run (ML Part)
+Create a virtual environment:
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # Linux/Mac
 .venv\Scripts\activate      # Windows
 ```
 
-### Zainstaluj zależności:
+### Install requirements:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Otwórz notebook:
+### Open notebook:
 
 jupyter notebook Churn.ipynb
 
 ---
 
-### Kluczowe wnioski
+### Key Insights
 
-- Największy wpływ na churn miały: czas współpracy (tenure), reklamacje, cashback oraz satysfakcja klienta.
-
-- Segmentacja wg ryzyka pozwala skupić działania na grupach o najwyższym ROI.
-
-- Symulacje w Power BI pokazują, że część kampanii retencyjnych jest nieopłacalna (koszt > uratowany przychód).
+- The biggest drivers of churn: tenure, complaints, cashback, and customer satisfaction.
+- Risk-based segmentation enables focusing retention efforts on groups with the highest ROI.
+- Power BI simulations show that some retention campaigns are not profitable (cost > saved revenue).
 ---
-### Stack technologiczny
+### Tech Stack
 
 - Python (pandas, scikit-learn, XGBoost, shap, matplotlib, seaborn)
 
@@ -122,4 +116,15 @@ jupyter notebook Churn.ipynb
 
 - Power BI
 ---
-### Projekt pokazuje, jak połączyć modelowanie ML z intuicyjnym dashboardem biznesowym – od predykcji, przez wyjaśnienie modelu, aż po konkretne rekomendacje działań.
+Note on Dashboard Language
+The Power BI dashboard uses Polish labels.
+### Dashboard Labels (Polish → English) examples:
+
+- Sprzedaż całkowita &rarr; Total Sales  
+- Satysfakcja klientów &rarr; Customer Satisfaction  
+- Liczba klientów &rarr; Number of Customers  
+- Ryzyko odejścia &rarr; Churn Risk  
+- Staż klienta &rarr; Customer Tenure  
+---
+Summary
+The project demonstrates how to combine ML modeling with an intuitive business dashboard – from prediction, through model explainability, to actionable recommendations.
